@@ -2,8 +2,9 @@
 using System.Collections;
 
 public class EnemyMovement : MonoBehaviour {
-	float randomX;
-	float randomY;
+
+	public float enemySpeed = 5;
+	public int direction;
 
 	// Use this for initialization
 	void Start () {
@@ -12,23 +13,32 @@ public class EnemyMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.Translate( new Vector3(randomX, randomY, 0 ) * Time.deltaTime);
+		if (direction == 0) {
+			transform.Translate( new Vector3(enemySpeed, 0, 0 ) * Time.deltaTime);
+		} else {
+			transform.Translate( new Vector3(0, enemySpeed, 0 ) * Time.deltaTime);
+		}
 	}
 
 	void OnTriggerEnter2D(Collider2D c) {
-		Debug.Log (c.gameObject.tag);
-		//col = c;
+		//Debug.Log (c.gameObject.tag);
 		if (c.gameObject.tag == "wall"){
-			randomX *= -1;
-			randomY *= -1;
+			enemySpeed *= -1;
 		}
 	}
-	
-	public void SetPosX(float x){
-		this.randomX = x;
+
+	public void SetSpeed(float speed){
+		this.enemySpeed = speed;
 	}
-	public void SetPosY(float y){
-		this.randomY = y;
+
+	public void SetDirection(int direction){
+		// horizontal or vertical
+		this.direction = direction;
+		// positive or negative
+		if ((Random.Range (0, 1)) == 0) {
+			this.enemySpeed *= -1;
+		}
+
 	}
 
 
