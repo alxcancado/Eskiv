@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class Movement : MonoBehaviour {
+public class EskivRules : MonoBehaviour {
 
 	public float speed = 5;
 	public GameObject squarePrefab;
@@ -67,15 +67,15 @@ var x = Input.GetAxis("Horizontal");
 	}
 
 	public void AddRandomSquare(){
-		float randomX = Random.Range (-3f,5.7f);
-		float randomY = Random.Range (4.1f,-4.3f);
+		float randomX = Random.Range (-3.1f,5.7f);
+		float randomY = Random.Range (4.2f,-4.3f);
 
 		GameObject clone = Instantiate(squarePrefab, transform.position, transform.rotation) as GameObject;
 		clone.transform.position =  new Vector3(randomX, randomY, 0); //this.gameObject.transform.position;
 	}
 
 	public void AddRandomEnemy(){
-		float randomX = Random.Range (-3.1f,5.8f);
+		float randomX = Random.Range (-3f,5.7f);
 		float randomY = Random.Range (4.3f,-4.5f);
 		GameObject clone = Instantiate(bluePrefab, transform.position, transform.rotation) as GameObject;
 		clone.transform.position =  new Vector3(randomX, randomY, 0); //this.gameObject.transform.position;
