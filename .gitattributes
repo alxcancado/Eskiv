@@ -1,1 +1,3 @@
-ld/Eskiv-Mac/Eskiv-Mac-1.03.app/Contents/Data/Managed/etc/mono/1.0/DefaultWsdlHelpGenerator.aspx 
+$ cat .gitattributes
+special-vendored-path/* linguist-vendored
+*.asp linguist-vendored=false
