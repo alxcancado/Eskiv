@@ -1,3 +1,12 @@
+--$ cat .gitattributes
+--special-vendored-path/* linguist-vendored
+--*.aspx linguist-vendored=false
+--Build/Eskiv-Mac/Eskiv-Mac-1.03.app/Contents/Data/Managed/etc/mono/1.0/DefaultWsdlHelpGenerator.aspx 
 $ cat .gitattributes
-special-vendored-path/* linguist-vendored
-*.aspx linguist-vendored=false
+*.aspx linguist-language=C#
+
+$ linguist --breakdown
+100.00% C#
+
+C#:
+DefaultWsdlHelpGenerator.aspx
